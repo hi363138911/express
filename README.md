@@ -1,5 +1,5 @@
 # express
-node，简约封装http为简单的Express
+node 简单封装http为简易的Express
 
 大概实现思路：封装一个app对象，创建由（http创建）server属性，然后创建一个stack的数组，用来储存use上挂载的方法。 来了来请求，判断路径且循环调用stack里的方法。
 
@@ -72,3 +72,4 @@ module.exports = createServer;
 
 
 ```
+
