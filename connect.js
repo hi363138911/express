@@ -1,9 +1,3 @@
-# express
-node，简约封装http为简单的Express
-
-大概实现思路：封装一个app对象，创建由（http创建）server属性，然后创建一个stack的数组，用来储存use上挂载的方法。 来了来请求，判断路径且循环调用stack里的方法。
-
-```
 var http = require('http');
 var url = require('url');
 var proto = {
@@ -33,7 +27,7 @@ proto.use = function(route, fn) {
         path: path
     });
 }
-//循环调用函数
+//调用函数
 proto.handle = function(req, res) {
     var stack = this.stack;
     var index = 0;
@@ -69,6 +63,3 @@ proto.listen = function(port) {
 }
 
 module.exports = createServer;
-
-
-```
