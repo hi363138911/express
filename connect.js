@@ -4,16 +4,7 @@ var proto = {
     stack: []
 };
 
-function createServer() {
-    var app = {
-        task: function(req, res) {
-            app.handle(req, res);
-        }
-    }
-    //把proto中的属性拷贝到app对象里
-    Object.assign(app, proto);
-    return app;
-}
+
 //装载函数
 proto.use = function(route, fn) {
     var path = route;
@@ -60,6 +51,17 @@ proto.handle = function(req, res) {
 proto.listen = function(port) {
     var server = http.createServer(this.task);
     server.listen(port);
+}
+
+const createServer = function() {
+    var app = {
+        task: function(req, res) {
+            app.handle(req, res);
+        }
+    }
+    //把proto中的属性拷贝到app对象里
+    Object.assign(app, proto);
+    return app;
 }
 
 module.exports = createServer;
